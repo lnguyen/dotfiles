@@ -1,8 +1,11 @@
 set nocompatible
 filetype off
+set rtp+=~/go/misc/vim
+filetype plugin indent on
+syntax on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
+retab
 "github repos
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
@@ -78,7 +81,7 @@ map <Leader>p :set paste!<CR>
 
 map <Leader>nn :set number!<CR>
 
-" alignment 
+" alignment
 map <Leader>= ggVG=<CR>
 
 " Remember last location in file
@@ -90,5 +93,12 @@ endif
 map ff gT
 map gg gt
 
-" strip trailing white space on save 
-autocmd BufWritePre * :%s/\s\+$//e 
+" strip trailing white space on save
+autocmd BufWritePre * :%s/\s\+$//
+nmap <buffer> <F5> <Plug>(xmpfilter-run)
+xmap <buffer> <F5> <Plug>(xmpfilter-run)
+imap <buffer> <F5> <Plug>(xmpfilter-run)
+
+nmap <buffer> <F4> <Plug>(xmpfilter-mark)
+xmap <buffer> <F4> <Plug>(xmpfilter-mark)
+imap <buffer> <F4> <Plug>(xmpfilter-mark)
